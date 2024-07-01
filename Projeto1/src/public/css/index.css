@@ -1,0 +1,32 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #6C0F0F;
+    height: 100vh;
+    margin: 0;
+}
+
+
+#conteiner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 30px;
+    width: 280px;
+    height: 450px;
+}
+
+#title{
+    font-size: 28px;
+    font-family: monospace;
+    color: #000000;
+}
+
+
+#img_hello{
+    width: 250px;
+    height: 100%;
+}
