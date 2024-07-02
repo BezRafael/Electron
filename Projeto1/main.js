@@ -24,7 +24,7 @@ const aboutWindow = () => {
   if (janelaPrincipal) {
     const about = new BrowserWindow({
       width: 360,
-      heigth: 220,
+      heigth: 100,
       icon: "./src/public/img/icon_hello.png",
       autoHideMenuBar: true, //Esconder o menu
       resizable: false, //redimensionamento
