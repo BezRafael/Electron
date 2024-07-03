@@ -1,0 +1,73 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#ConteinerCalculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border: 5px solid gray;
+    border-radius: 30px;
+    width: 420px;
+    height: 700px;
+    gap: 10px;
+}
+
+#Conteiner_TelaCalculadora{
+    border-radius: 30px;
+    background-color: antiquewhite;
+    text-align: right;
+    width: 415px;
+    height: 180px;
+    font-size: 50px;
+    font-family: monospace;
+}
+
+#Conteiner_botoesCalculadora{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    width: 415px;
+    height: 480px;
+}
+
+#coluna1{
+    display: flex;
+    justify-content: right;
+    height: 80px;
+    gap: 8px;
+}
+
+.coluna{
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    gap: 8px;
+}
+
+#coluna5{
+    display: flex;
+    justify-content: space-between;
+}
+
+.numeros{
+    background-color: antiquewhite;
+    border: none;
+    border-radius: 20px;
+    font-size: 40px;
+    font-family: monospace;
+    width: 100px;
+    height: 100%;
+}
+
+.numeros:hover{
+    background-color: rgb(255, 255, 255);
+}
