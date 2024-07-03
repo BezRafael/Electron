@@ -1,4 +1,9 @@
 body{
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,20 +12,26 @@ body{
     margin: 0;
 }
 
+
 #titulo{
-    text-align: center;
-    border: 2px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid black;
+    background-color: #CDC6D1;
     font-family: monospace;
     font-size: 35px;
     border-radius: 30px;
     width: 380px;
+    height: 50px;
 }
 
 #conteiner{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid grey;
+    border: 5px solid black;
+    background-color: #4089FF;
     border-radius: 50px;
     width: 500px;
     height: 700px;
@@ -29,20 +40,23 @@ body{
 
 #telaCalculadora{
     display: flex;
-    border: 1px solid grey;
+    align-items: center;
+    justify-content: center;
+    background-color: #CDC6D1;
     border-radius: 30px;
     width: 420px;
     height: 150px;
     margin-top: 50px;
-    margin-bottom: 120px;
+    margin-bottom: 80px;
     font-size: 32px;
     font-family: monospace;
-    padding-right: 40px;
+    text-align: center;
 }
 
 .inputNumber{
     border-radius: 20px;
-    border: 2px solid grey;
+    border: none;
+    background-color: #CDC6D1;
     text-align: center;
     font-family: monospace;
     font-size: 20px;
@@ -51,10 +65,23 @@ body{
 }
 
 #botaoCalcular{
-    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 4px solid black;
+    background-color: #FF2C27;
     border-radius: 8px;
     font-family: monospace;
-    width: 100px;
-    height: 30px;
-    font-size: 20px;
+    width: 140px;
+    height: 55px;
+    font-size: 45px;
+    font-weight: bolder;
+    transition: 300ms;
+}
+
+#botaoCalcular:hover{
+    transition: 300ms;
+    width: 148px;
+    height: 58px;
+    font-size: 45px;
 }
