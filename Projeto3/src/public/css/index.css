@@ -6,7 +6,7 @@ body{
     margin: 0;
 }
 
-#ConteinerCalculadora{
+#conteinerCalculadora{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -19,7 +19,7 @@ body{
     gap: 10px;
 }
 
-#Conteiner_TelaCalculadora{
+#conteiner_TelaCalculadora{
     border-radius: 30px;
     background-color: antiquewhite;
     text-align: right;
@@ -29,7 +29,7 @@ body{
     font-family: monospace;
 }
 
-#Conteiner_botoesCalculadora{
+#conteiner_botoesCalculadora{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -39,14 +39,14 @@ body{
     height: 480px;
 }
 
-#coluna1{
+#linha1{
     display: flex;
     justify-content: right;
     height: 80px;
     gap: 8px;
 }
 
-.coluna{
+.linha{
     display: flex;
     justify-content: center;
     height: 80px;
