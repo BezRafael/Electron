@@ -2,6 +2,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e0e1dd;
     height: 100vh;
     margin: 0;
 }
@@ -11,22 +12,24 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: lightgray;
-    border: 5px solid gray;
+    background-color: #1b263b;
+    border: 8px solid #0d1b2a;
     border-radius: 30px;
     width: 420px;
-    height: 700px;
+    height: 720px;
     gap: 10px;
 }
 
 #conteiner_TelaCalculadora{
-    border-radius: 30px;
-    background-color: antiquewhite;
     text-align: right;
-    width: 415px;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    background-color: #e0e1dd;
+    width: 380px;
     height: 180px;
-    font-size: 50px;
+    font-size: 20px;
     font-family: monospace;
+    color: #0d1b2a;
 }
 
 #conteiner_botoesCalculadora{
@@ -59,7 +62,7 @@ body{
 }
 
 .numeros{
-    background-color: antiquewhite;
+    background-color: #778da9;
     border: none;
     border-radius: 20px;
     font-size: 40px;
@@ -69,5 +72,5 @@ body{
 }
 
 .numeros:hover{
-    background-color: rgb(255, 255, 255);
+    background-color: #e0e1dd;
 }

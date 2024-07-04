@@ -10,41 +10,41 @@
 <body>
     <div id="conteinerCalculadora">
         <div id="conteiner_TelaCalculadora">
-            <h1 id="resultado">0</h1>
+            <h1 id="resultado"></h1>
         </div>
 
         <div id="conteiner_botoesCalculadora">
-            <div id="linha1">
-                <button class="numeros" id="botaoApagar"><=</button>
-                <button class="numeros" id="botaoLimpar">C</button>
-                <button class="numeros" id="operadorDivisao">/</button>
+            <div id="linha1">   
+                <button class="numeros" onclick="limpar()" id="botaoLimpar">C</button>
+                <button class="numeros" onclick="apagar()" id="botaoApagar"><=</button>
+                <button class="numeros" onclick="insert('/')" id="operadorDivisao">/</button>
             </div>
 
-            <div class="linha" id="coluna2">
-                <button class="numeros" id="botao7">7</button>
-                <button class="numeros" id="botao8">8</button>
-                <button class="numeros" id="botao9">9</button>
-                <button class="numeros" id="operadorMultiplicacao">X</button>
+            <div class="linha" id="linha2">
+                <button class="numeros" onclick="insert('7')" id="botao7">7</button>
+                <button class="numeros" onclick="insert('8')" id="botao8">8</button>
+                <button class="numeros" onclick="insert('9')" id="botao9">9</button>
+                <button class="numeros" onclick="insert('*')" id="operadorMultiplicacao">X</button>
             </div>
 
-            <div class="linha" id="coluna3">
-                <button class="numeros" id="botao4">4</button>
-                <button class="numeros" id="botao5">5</button>
-                <button class="numeros" id="botao6">6</button>
-                <button class="numeros" id="operadorSubtracao">-</button>
+            <div class="linha" id="linha3">
+                <button class="numeros" onclick="insert('4')" id="botao4">4</button>
+                <button class="numeros" onclick="insert('5')" id="botao5">5</button>
+                <button class="numeros" onclick="insert('6')" id="botao6">6</button>
+                <button class="numeros" onclick="insert('-')" id="operadorSubtracao">-</button>
             </div>
 
-            <div class="linha" id="coluna4">
-                <button class="numeros" id="botao1">1</button>
-                <button class="numeros" id="botao2">2</button>
-                <button class="numeros" id="botao3">3</button>
-                <button class="numeros" id="operadorAdicao">+</button>
+            <div class="linha" id="linha4">
+                <button class="numeros" onclick="insert('1')" id="botao1">1</button>
+                <button class="numeros" onclick="insert('2')" id="botao2">2</button>
+                <button class="numeros" onclick="insert('3')" id="botao3">3</button>
+                <button class="numeros" onclick="insert('+')" id="operadorAdicao">+</button>
             </div>
 
-            <div class="linha" id="coluna5">
-                <button class="numeros" id="botaoPonto">.</button>
-                <button class="numeros" id="botao0">0</button>
-                <button class="numeros" id="botaoIgual">=</button>
+            <div class="linha" id="linha5">
+                <button class="numeros" onclick="insert('.')" id="botaoPonto">.</button>
+                <button class="numeros" onclick="insert('0')" id="botao0">0</button>
+                <button class="numeros" onclick="calcular()" id="botaoIgual">=</button>
             </div>
         </div>
     </div>
