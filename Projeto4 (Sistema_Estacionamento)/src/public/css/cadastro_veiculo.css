@@ -13,29 +13,6 @@ body{
     gap: 10px;
 }
 
-/*Área de listar veículos cadastrados (pop-up)*/
-#conteiner_veiculosCadastrados{
-    border-radius: 20px;
-    border: none;
-    width: 96%;
-    height: 500px;
-    list-style: none;
-    padding-inline: 2%;
-}
-
-#botao_fecharLista{
-    border: none;
-    background-color: #FFC300;
-    border-radius: 8px;
-    transition: 300ms;
-    font-weight: bold;
-    font-size: 15px;
-    margin-left: 99%;
-    width: 30px;
-    height: 30px;
-    transition: 300ms;
-}
-
 /*Área da imagem logo*/
 #area_imagem{
     display: flex;

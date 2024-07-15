@@ -3,26 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../public/css/cadastro_veiculo.css">
+    <title>Cadastro de Veículo</title>
 </head>
 <body>
-    <!--Área pop-up onde ficará a lista de veículos cadastrados-->
-    <dialog id="conteiner_veiculosCadastrados">
-        <button id="botao_fecharLista" onclick="fechar_lista()">X</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>Veículo</th>
-                    <th>Placa</th>
-                    <th>Entrada</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody id="garagem"></tbody>
-        </table>
-    </dialog>
-
     <!--Área da imagem onde ficará a logo do aplicativo-->
         <div id="area_imagem">
             <img id="imagem" src="../public/img/logo_estacionamento.png" alt="">
@@ -46,6 +30,6 @@
     <!--Botão onde irá abrir a lista de veículos cadastrados (pop-up)-->
         <button id="botao_exibirLista" onclick="abrir_lista()">Ver Lista</button>
 
-    <script src="../public/js/index.js"></script>
+    <script src="../public/js/cadastro_veiculo.js"></script>
 </body>
 </html>
