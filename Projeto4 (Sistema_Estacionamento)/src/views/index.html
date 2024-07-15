@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!--Área pop-up onde ficará a lista de veículos cadastrados-->
+    <dialog id="conteiner_veiculosCadastrados">
+        <button id="botao_fecharLista" onclick="fechar_lista()">X</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Veículo</th>
+                    <th>Placa</th>
+                    <th>Entrada</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="garagem"></tbody>
+        </table>
+    </dialog>
+
+    <!--Área da imagem onde ficará a logo do aplicativo-->
+        <div id="area_imagem">
+            <img id="imagem" src="../public/img/logo_estacionamento.png" alt="">
+        </div>
+
+    <!--Área de cadastro onde irá inserir os dados do veículo-->    
+        <div id="area_cadastro">
+            <h1 style="font-size:40px;">Cadastro de Veículo</h1>
+            
+            <label for="">Modelo</label>
+            <input id="modelo_veiculo" type="text" style="text-align: center;" autocomplete="off">
+
+            <label for="">Placa</label>
+            <input id="placa_veiculo" type="text" style="text-align: center;" autocomplete="off">
+
+            <button id="botao_cadastro" onclick="cadastrar_veiculo()">Cadastrar</button>
+
+            <h4 style="font-size: 25px;" id="status"></h4>
+        </div>
+
+    <!--Botão onde irá abrir a lista de veículos cadastrados (pop-up)-->
+        <button id="botao_exibirLista" onclick="abrir_lista()">Ver Lista</button>
+
+    <script src="../public/js/index.js"></script>
+</body>
+</html>

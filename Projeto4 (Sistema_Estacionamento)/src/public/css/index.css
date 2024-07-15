@@ -1,0 +1,117 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000814;
+    height: 100vh;
+    gap: 10px;
+}
+
+/*Área de listar veículos cadastrados (pop-up)*/
+#conteiner_veiculosCadastrados{
+    border-radius: 20px;
+    border: none;
+    width: 96%;
+    height: 500px;
+    list-style: none;
+    padding-inline: 2%;
+}
+
+#botao_fecharLista{
+    border: none;
+    background-color: #FFC300;
+    border-radius: 8px;
+    transition: 300ms;
+    font-weight: bold;
+    font-size: 15px;
+    margin-left: 99%;
+    width: 30px;
+    height: 30px;
+    transition: 300ms;
+}
+
+/*Área da imagem logo*/
+#area_imagem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+#imagem{
+    width: 120px;
+    height: 120px;
+}
+
+/*Área de cadastro dos veículos*/
+#area_cadastro{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #003566;
+    border-radius: 20px;
+    width: 800px;
+    height: 400px;
+    font-family: monospace;
+    color: white;
+}
+
+label{
+    margin-bottom: -20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+input{
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 40px;
+}
+
+#botao_cadastro{
+    background-color: #FFC300;
+    border: none;
+    border-radius: 8px;
+    width: 100px;
+    height: 40px;
+    transition: 300ms;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+#botao_cadastro:hover{
+    transition: 300ms;
+    font-size: 16px;
+}
+
+
+/*Botão de exibir a lista de veículos*/
+
+#botao_exibirLista{
+    border: none;
+    background-color: #FFC300;
+    border-radius: 8px;
+    margin-left: 50%;
+    width: 80px;
+    height: 40px;
+    transition: 300ms;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#botao_exibirLista:hover{
+    transition: 300ms;
+    font-size: 16px;
+}
+
