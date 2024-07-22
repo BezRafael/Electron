@@ -34,8 +34,36 @@ function cadastrar_veiculo(){
     //PARTE 1.6 (Exibindo status de veículo cadastrado)
     document.getElementById('status').style.color = 'lightgreen'
     document.getElementById('status').innerHTML = 'Veículo Cadastrado!'
+
+    //Chamando a função criada abaixo. Após o cadastro dos dados. 
+    mostrar_veiculos()
     };
 }
+
+
+function mostrar_veiculos(){
+    const garagem = JSON.parse(localStorage.getItem('garagem')) || [];
+    const tbody = document.querySelector('#tabela-veiculos tbody');
+    tbody.innerHTML = '';
+
+    garagem.forEach(veiculo => {
+        const tr = document.createElement('tr');
+        const tdModelo = document.createElement('td');
+        const tdPlaca = document.createElement('td');
+        const tdHorario = document.createElement('td');
+
+        tdModelo.textContent = veiculo.modelo_veiculo;
+        tdPlaca.textContent = veiculo.placa_veiculo;
+        tdHorario.textContent = veiculo.horario_entrada;
+
+        tr.appendChild(tdModelo);
+        tr.appendChild(tdPlaca);
+        tr.appendChild(tdHorario);
+        tbody.appendChild(tr);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', mostrar_veiculos);
 
 
 //Função responsável por abrir uma página da lista de veículos cadastrados 

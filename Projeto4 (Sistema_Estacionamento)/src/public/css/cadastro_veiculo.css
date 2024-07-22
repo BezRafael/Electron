@@ -13,22 +13,6 @@ body{
     gap: 10px;
 }
 
-/*Área da imagem logo*/
-#area_imagem{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-}
-
-#imagem{
-    width: 120px;
-    height: 120px;
-}
-
 /*Área de cadastro dos veículos*/
 #area_cadastro{
     display: flex;
@@ -37,14 +21,14 @@ body{
     align-items: center;
     background-color: #003566;
     border-radius: 20px;
-    width: 800px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
     font-family: monospace;
     color: white;
 }
 
 label{
-    margin-bottom: -20px;
+    margin-bottom: -40px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -74,12 +58,17 @@ input{
 
 
 /*Botão de exibir a lista de veículos*/
+#area_botao{
+    display: flex;
+    justify-content: right;
+    width: 480px;
+}
+
 
 #botao_exibirLista{
     border: none;
     background-color: #FFC300;
     border-radius: 8px;
-    margin-left: 50%;
     width: 80px;
     height: 40px;
     transition: 300ms;

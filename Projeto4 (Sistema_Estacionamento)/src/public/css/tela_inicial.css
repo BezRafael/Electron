@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000814;
+    height: 100vh;
+}
+
+h1{
+    font-family: monospace;
+    color: white;
+    font-size:50px;
+}
+
+img{
+    background-color: white;
+    width: 600px;
+    height: 480px;
+    border-radius: 50%;
+}
+
+@keyframes flutuante{
+    0%{
+        transform: translate(0px);
+    }
+
+    50%{
+        transform: translate(10px);
+    }
+}
+
+h2{
+    font-family: monospace;
+    color: white;
+    font-size: 35px;
+    opacity: 0.3;
+    animation: flutuante 1.5s infinite ease-out;;
+}

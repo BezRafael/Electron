@@ -7,10 +7,6 @@
     <title>Cadastro de Veículo</title>
 </head>
 <body>
-    <!--Área da imagem onde ficará a logo do aplicativo-->
-        <div id="area_imagem">
-            <img id="imagem" src="../public/img/logo_estacionamento.png" alt="">
-        </div>
 
     <!--Área de cadastro onde irá inserir os dados do veículo-->    
         <div id="area_cadastro">
@@ -28,7 +24,9 @@
         </div>
 
     <!--Botão onde irá abrir a lista de veículos cadastrados (pop-up)-->
-        <button id="botao_exibirLista" onclick="abrir_lista()">Ver Lista</button>
+        <div id="area_botao">
+            <button id="botao_exibirLista" onclick="abrir_lista()">Ver Lista</button>
+        </div>
 
     <script src="../public/js/cadastro_veiculo.js"></script>
 </body>
