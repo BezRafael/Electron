@@ -20,12 +20,14 @@
 
             <button id="botao_cadastro" onclick="cadastrar_veiculo()">Cadastrar</button>
 
-            <h4 style="font-size: 25px;" id="status"></h4>
+            <h4 style="font-size: 25px;" id="status">Vagas Disponíveis:</h4>
         </div>
 
-    <!--Botão onde irá abrir a lista de veículos cadastrados (pop-up)-->
+    <!--Botão onde irá abrir a lista de veículos cadastrados-->
         <div id="area_botao">
-            <button id="botao_exibirLista" onclick="abrir_lista()">Ver Lista</button>
+            <button id="botao_exibirLista" onclick="abrir_lista()">
+                <img id="img_lista" src="../public/img/icon_lista.png" alt="">
+            </button>
         </div>
 
     <script src="../public/js/cadastro_veiculo.js"></script>

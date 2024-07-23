@@ -49,6 +49,7 @@ input{
     transition: 300ms;
     font-size: 15px;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #botao_cadastro:hover{
@@ -72,12 +73,18 @@ input{
     width: 80px;
     height: 40px;
     transition: 300ms;
-    font-weight: bold;
-    font-size: 15px;
+    cursor: pointer;
 }
 
-#botao_exibirLista:hover{
+#img_lista{
     transition: 300ms;
-    font-size: 16px;
+    width: 30px;
+    height: 30px;
+}
+
+#img_lista:hover{
+    transition: 300ms;
+    width: 33px;
+    height: 33px;
 }
 
