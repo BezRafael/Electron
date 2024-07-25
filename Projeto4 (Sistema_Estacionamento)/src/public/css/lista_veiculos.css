@@ -116,3 +116,9 @@ input{
     transition: 300ms;
     font-size: 25px;
 }
+
+/*Área de status da remoção do veículo*/
+#status_remocao{
+    font-family: monospace;
+    color: rgb(51, 51, 51);
+}

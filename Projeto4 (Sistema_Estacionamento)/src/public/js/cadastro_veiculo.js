@@ -65,6 +65,32 @@ function mostrar_veiculos(){
 
 document.addEventListener('DOMContentLoaded', mostrar_veiculos);
 
+function remover_veiculo() {
+    var input_removerVeiculo = document.getElementById('input_removerPlaca').value;
+
+    if (!input_removerVeiculo) {
+        document.getElementById('status_remocao').style.color = 'lightcoral';
+        document.getElementById('status_remocao').innerHTML = 'Insira a Placa para Remover!';
+        return
+    }
+        
+    let garagem = JSON.parse(localStorage.getItem('garagem')) || [];
+    const nova_garagem = garagem.filter(veiculo => veiculo.placa_veiculo !== input_removerVeiculo);
+
+    if(garagem.length === nova_garagem.length) {
+        document.getElementById('status_remocao').style.color = 'lightcoral';
+        document.getElementById('status_remocao').innerHTML = 'Veículo não encontrado.';
+    } else {
+        localStorage.setItem('garagem', JSON.stringify(nova_garagem));
+        mostrar_veiculos();
+        document.getElementById('status_remocao').style.color = 'lightgreen';
+        document.getElementById('status_remocao').innerHTML = 'Veículo Removido com Sucesso!';
+    }
+
+    document.getElementById('input_removerPlaca').value = '';
+}
+
+
 
 //Função responsável por abrir uma página da lista de veículos cadastrados 
 function abrir_lista() {
