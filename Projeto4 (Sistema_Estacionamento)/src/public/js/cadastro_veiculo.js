@@ -66,26 +66,57 @@ function mostrar_veiculos(){
 document.addEventListener('DOMContentLoaded', mostrar_veiculos);
 
 function remover_veiculo() {
-    var input_removerVeiculo = document.getElementById('input_removerPlaca').value;
-
-    if (!input_removerVeiculo) {
-        document.getElementById('status_remocao').style.color = 'lightcoral';
-        document.getElementById('status_remocao').innerHTML = 'Insira a Placa para Remover!';
-        return
+    const placa_remover = document.getElementById('input_removerPlaca').value;
+    if(!placa_remover) {
+        alert("Por favor, digite uma placa para remover.");
+        return;
     }
-        
+
     let garagem = JSON.parse(localStorage.getItem('garagem')) || [];
-    const nova_garagem = garagem.filter(veiculo => veiculo.placa_veiculo !== input_removerVeiculo);
-
-    if(garagem.length === nova_garagem.length) {
-        document.getElementById('status_remocao').style.color = 'lightcoral';
-        document.getElementById('status_remocao').innerHTML = 'Veículo não encontrado.';
-    } else {
-        localStorage.setItem('garagem', JSON.stringify(nova_garagem));
-        mostrar_veiculos();
-        document.getElementById('status_remocao').style.color = 'lightgreen';
-        document.getElementById('status_remocao').innerHTML = 'Veículo Removido com Sucesso!';
+    const veiculo = garagem.find(veiculo => veiculo.placa_veiculo === placa_remover);
+    
+    if(!veiculo) {
+        alert("Veículo não encontrado.");
+        return;
     }
+
+    // Calculando o horário de saída e valor a pagar
+    const horario_saida = new Date().toLocaleTimeString('pt-BR');
+    const horario_saida_ms = new Date().getTime();
+    const duracao_ms = horario_saida_ms - veiculo.horario_entrada_ms;
+    const duracao_horas = Math.ceil(duracao_ms / (1000 * 60 * 60)); // Convertendo milissegundos para horas
+    const valor_por_hora = 5; // Definindo um valor por hora
+    const valor_total = duracao_horas * valor_por_hora;
+
+    // Exibindo o modal com os detalhes do extrato
+    const modal = document.getElementById('modal_extrato');
+    const span = document.getElementById('close_modal');
+    const extrato_detalhes = document.getElementById('extrato_detalhes');
+
+    extrato_detalhes.innerHTML = `
+        <p>Placa: ${veiculo.placa_veiculo}</p>
+        <p>Horário de Entrada: ${veiculo.horario_entrada}</p>
+        <p>Horário de Saída: ${horario_saida}</p>
+        <p>Tempo de Permanência: ${duracao_horas} hora(s)</p>
+        <p>Valor a Pagar: R$ ${valor_total},00</p>
+    `;
+
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Removendo o veículo do localStorage
+    const nova_garagem = garagem.filter(veiculo => veiculo.placa_veiculo !== placa_remover);
+    localStorage.setItem('garagem', JSON.stringify(nova_garagem));
+    mostrar_veiculos();
 
     document.getElementById('input_removerPlaca').value = '';
 }

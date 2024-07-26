@@ -122,3 +122,39 @@ input{
     font-family: monospace;
     color: rgb(51, 51, 51);
 }
+
+/*Modal*/
+#modal_extrato{
+    border-radius: 20px;
+    width: 380px;
+    height: 200px;
+    background-color: lightgrey;
+}
+
+#modal_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: 18px;
+}
+
+#close_modal{
+    margin-left: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #00274d;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    transition: 300ms;
+    font-weight: bold;
+}
+
+#close_modal:hover{
+    transition: 300ms;
+    font-size: 20px;
+}
