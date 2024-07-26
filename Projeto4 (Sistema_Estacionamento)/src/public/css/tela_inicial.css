@@ -1,3 +1,4 @@
+/*Reset*/
 *{
     margin: 0;
     padding: 0;
@@ -12,12 +13,14 @@ body{
     height: 100vh;
 }
 
+/*Área do título do sistema*/
 h1{
     font-family: monospace;
     color: white;
     font-size:50px;
 }
 
+/*Área da imagem do sistema*/
 figure{
     display: flex;
     justify-content: center;
@@ -28,6 +31,8 @@ figure{
     border-radius: 50%;
 }
 
+
+/*Animação */
 @keyframes flutuante{
     0%{
         transform: translate(0px);
@@ -38,6 +43,7 @@ figure{
     }
 }
 
+/*Texto informativo*/
 h2{
     font-family: monospace;
     color: white;
