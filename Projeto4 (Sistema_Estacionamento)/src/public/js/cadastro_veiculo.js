@@ -1,73 +1,88 @@
+var totalVagas = 20;
 
-//PARTE 1(Função disparada após o click do botão cadastrar)
+// Função disparada após o clique do botão cadastrar
 function cadastrar_veiculo() {
-    //PARTE 1.1 (Buscando valores inseridos no input)
     const modelo_veiculo = document.getElementById('modelo_veiculo').value;
     const placa_veiculo = document.getElementById('placa_veiculo').value;
-    const horario_entrada = new Date().toLocaleTimeString('pt-BR'); //Horário convertido para PT-BR
-    const horario_entrada_ms = new Date().getTime(); // Horário de entrada em milissegundos
+    const horario_entrada = new Date().toLocaleTimeString('pt-BR');
+    const horario_entrada_ms = new Date().getTime();
 
+    // Verificar vagas disponíveis antes de cadastrar
+    const garagem = localStorage.garagem ? JSON.parse(localStorage.garagem) : [];
+    const vagas_disponiveis = totalVagas - garagem.length;
 
-    //PARTE 1.2 (Realizando verificação se os dados estão vazios)
+    if (vagas_disponiveis <= 0) {
+        document.getElementById('status').style.color = 'lightcoral';
+        document.getElementById('status').innerHTML = 'Não há vagas disponíveis!';
+        return;
+    }
+
     if (!modelo_veiculo || !placa_veiculo) {
         document.getElementById('status').style.color = 'lightcoral';
         document.getElementById('status').innerHTML = 'Preencha Todos os Campos!';
     } else {
-        //PARTE 1.3 (Armazenando os dados do input em um objeto)
         const veiculo = {
             modelo_veiculo: modelo_veiculo,
             placa_veiculo: placa_veiculo,
             horario_entrada: horario_entrada,
-            horario_entrada_ms: horario_entrada_ms // Armazenando horário de entrada em milissegundos
+            horario_entrada_ms: horario_entrada_ms
         };
-        
-        //PARTE 1.4 (Salvando em Localstorage)
-        const garagem = localStorage.garagem ? JSON.parse(localStorage.garagem) : []; 
+
         garagem.push(veiculo);
         localStorage.garagem = JSON.stringify(garagem);
-        console.log(garagem);
 
-        //PARTE 1.5 (Limpa os inputs após serem cadastrados)
         document.getElementById('modelo_veiculo').value = '';
         document.getElementById('placa_veiculo').value = '';
 
-        //PARTE 1.6 (Exibe os status de veículo cadastrado)
         document.getElementById('status').style.color = 'lightgreen';
         document.getElementById('status').innerHTML = 'Veículo Cadastrado!';
 
-        //PARTE 1.7 (Chama a função criada posteriormente)
         mostrar_veiculos();
+        atualizar_vagas();
     }
 }
 
-//PARTE 2 (Função disparada após o cadastro do veículo)
-function mostrar_veiculos() {
-
-    //PARTE 2.1 (Acessando o Localstorage já criado anteriormente)
+function atualizar_vagas() {
     const garagem = JSON.parse(localStorage.getItem('garagem')) || [];
-    const tbody = document.querySelector('#tabela-veiculos tbody'); //Chamando o elemento html
-    tbody.innerHTML = '' // Limpa o conteúdo atual do tbody, caso haja alguma linha já presente
+    const vagas_disponiveis = totalVagas - garagem.length;
+    console.log(`Total de vagas: ${totalVagas}`); // Log para depuração
+    console.log(`Veículos na garagem: ${garagem.length}`); // Log para depuração
+    console.log(`Vagas disponíveis: ${vagas_disponiveis}`); // Log para depuração
 
-    //PARTE 2.2 (Varrendo o localstorage)
-    garagem.forEach(veiculo => {// Itera sobre cada objeto do array 'garagem'. Criando novos elementos de célula de tabela (td) para cada informação do veículo
-        const tr = document.createElement('tr'); 
-        const tdModelo = document.createElement('td');
-        const tdPlaca = document.createElement('td');
-        const tdHorario = document.createElement('td');
+    const vagasElement = document.getElementById('vagas_disponiveis');
+    if (vagasElement) {
+        vagasElement.innerHTML = `Vagas Disponíveis: ${vagas_disponiveis}`;
+    } else {
+        console.error('Elemento "vagas_disponiveis" não encontrado.');
+    }
+}
 
-        //Define o texto de cada célula com as propriedades do objeto 'veiculo'
-        tdModelo.textContent = veiculo.modelo_veiculo;
-        tdPlaca.textContent = veiculo.placa_veiculo;
-        tdHorario.textContent = veiculo.horario_entrada;
+function mostrar_veiculos() {
+    const garagem = JSON.parse(localStorage.getItem('garagem')) || [];
+    const tbody = document.querySelector('#tabela-veiculos tbody');
+    if (tbody) {
+        tbody.innerHTML = '';
 
-        //Adiciona cada célula à linha da tabela
-        tr.appendChild(tdModelo);
-        tr.appendChild(tdPlaca);
-        tr.appendChild(tdHorario);
-        
-        // Adiciona a linha completa ao tbody da tabela
-        tbody.appendChild(tr);
-    });
+        garagem.forEach(veiculo => {
+            const tr = document.createElement('tr');
+            const tdModelo = document.createElement('td');
+            const tdPlaca = document.createElement('td');
+            const tdHorario = document.createElement('td');
+
+            tdModelo.textContent = veiculo.modelo_veiculo;
+            tdPlaca.textContent = veiculo.placa_veiculo;
+            tdHorario.textContent = veiculo.horario_entrada;
+
+            tr.appendChild(tdModelo);
+            tr.appendChild(tdPlaca);
+            tr.appendChild(tdHorario);
+            tbody.appendChild(tr);
+        });
+    } else {
+        console.error('Elemento "tbody" não encontrado.');
+    }
+
+    atualizar_vagas();
 }
 
 document.addEventListener('DOMContentLoaded', mostrar_veiculos);
@@ -91,7 +106,7 @@ function remover_veiculo() {
     const veiculo = garagem.find(veiculo => veiculo.placa_veiculo === placa_remover);
     
     if (!veiculo) {
-        alert("Veículo não encontrado.");
+        document.getElementById('extrato_detalhes').innerHTML = 'Veículo não Encontrado!';
         return;
     }
 
@@ -99,8 +114,8 @@ function remover_veiculo() {
     const horario_saida = new Date().toLocaleTimeString('pt-BR');
     const horario_saida_ms = new Date().getTime();
     const duracao_ms = horario_saida_ms - veiculo.horario_entrada_ms;
-    const duracao_horas = Math.ceil(duracao_ms / (1000 * 60 * 60)); // Convertendo milissegundos para horas
-    const valor_por_hora = 5; // Definindo um valor por hora
+    const duracao_horas = Math.ceil(duracao_ms / (1000 * 60 * 60));
+    const valor_por_hora = 5;
     const valor_total = duracao_horas * valor_por_hora;
 
     // Exibindo o modal com os detalhes do extrato
@@ -132,7 +147,7 @@ function remover_veiculo() {
     const nova_garagem = garagem.filter(veiculo => veiculo.placa_veiculo !== placa_remover);
     localStorage.setItem('garagem', JSON.stringify(nova_garagem));
     mostrar_veiculos();
+    atualizar_vagas();
 
     document.getElementById('input_removerPlaca').value = '';
 }
-
