@@ -3,7 +3,7 @@ const { app, BrowserWindow, Menu, shell } = require('electron');
 //Janela Principal
 const createWindow = () => {
     const win = new BrowserWindow({
-      width: 800,
+      width: 1000,
       height: 600,
       icon: "./src/public/img/img_logo.png" //Ícone do Executável
     });
@@ -20,7 +20,7 @@ const aboutWindow = () => {
   if (janelaPrincipal) {
     const about = new BrowserWindow({
       width: 380,
-      heigth: 100,
+      height: 300,
       icon: "./src/public/img/img_logo.png",
       autoHideMenuBar: true, //Esconder o menu
       resizable: false, //redimensionamento
