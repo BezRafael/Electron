@@ -1,18 +1,24 @@
-const { app, BrowserWindow, Menu, shell } = require('electron');
+const { app, BrowserWindow, Menu, nativeTheme,shell } = require('electron');
 
 //Janela Principal
 const createWindow = () => {
+    nativeTheme.themeSource = 'dark'
     const win = new BrowserWindow({
       width: 1000,
       height: 600,
-      icon: "./src/public/img/img_logo.png" //Ícone do Executável
+      icon: "./src/public/img/img_logo.png", //Ícone do Executável
+      resizable: false
     });
 
     //Menu personalizado
     Menu.setApplicationMenu(Menu.buildFromTemplate(template))
 
+    win.maximize();
+
     win.loadFile('./src/views/tela_inicial.html');
 };
+
+  
 
 //Janela Sobre
 const aboutWindow = () => {

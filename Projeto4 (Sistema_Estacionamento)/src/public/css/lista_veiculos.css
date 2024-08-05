@@ -27,6 +27,7 @@ body{
     border-collapse: collapse;
     margin: 0 auto;
     font-family: monospace;
+    font-weight: bold;
     font-size: 30px;
     text-align: center;
 }
@@ -132,6 +133,7 @@ input{
     justify-content: center;
     align-items: center;
     font-family: monospace;
+    font-weight: bold;
     font-size: 18px;
 }
 
